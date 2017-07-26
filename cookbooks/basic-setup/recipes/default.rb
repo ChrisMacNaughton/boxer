@@ -11,7 +11,7 @@ user user_name do
   shell '/bin/bash'
 end
 
-['bin', '.ssh'].each do |dir|
+['bin', '.ssh', 'projects'].each do |dir|
     directory "/home/#{user_name}/#{dir}" do
         recursive true
         owner user
@@ -44,4 +44,16 @@ utils = [scm, testing, 'sshuttle'].flatten
 
 utils.each do |util|
   package util
+end
+
+# Git projects to keep in sync
+projects = [
+    ['ChrisMacNaughton','boxer'],
+]
+
+projects.each do |user, project|
+    git "/home/chris/projects/#{project}" do
+      repository "git@github.com:#{user}/#{project}.git"
+      action :sync
+    end
 end
