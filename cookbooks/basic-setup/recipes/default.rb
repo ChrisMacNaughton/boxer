@@ -38,7 +38,7 @@ end
 
 # all package to install
 scm = %w{ bzr git }
-testing = %{ tox }
+testing = %{ python-tox }
 
 utils = [scm, testing, 'sshuttle'].flatten
 
