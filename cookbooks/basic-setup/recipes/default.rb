@@ -53,6 +53,7 @@ projects = [
 
 projects.each do |user, project|
     git "/home/chris/projects/#{project}" do
+      user user_name
       repository "git@github.com:#{user}/#{project}.git"
       action :sync
     end
