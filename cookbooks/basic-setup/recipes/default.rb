@@ -14,8 +14,8 @@ end
 ['bin', '.ssh', 'projects'].each do |dir|
     directory "/home/#{user_name}/#{dir}" do
         recursive true
-        owner user
-        group user
+        owner user_name
+        group user_name
         mode '0755'
         action :create
     end
@@ -23,16 +23,16 @@ end
 
 remote_file "/home/#{user_name}/bin/sensible.bash" do
   source 'https://raw.githubusercontent.com/mrzool/bash-sensible/master/sensible.bash'
-  owner user
-  group user
+  owner user_name
+  group user_name
   mode '0655'
   action :create
 end
 
 # Setup my bashrc
 cookbook_file "/home/#{user_name}/.bashrc" do
-  owner user
-  group user
+  owner user_name
+  group user_name
   source "bashrc"
 end
 
