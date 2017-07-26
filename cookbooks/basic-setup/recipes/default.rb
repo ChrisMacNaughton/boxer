@@ -22,11 +22,11 @@ end
 end
 
 remote_file "/home/#{user_name}/bin/sensible.bash" do
-  source 'https://raw.githubusercontent.com/mrzool/bash-sensible/master/sensible.bash'
-  owner user_name
-  group user_name
-  mode '0655'
-  action :create
+    source 'https://raw.githubusercontent.com/mrzool/bash-sensible/master/sensible.bash'
+    owner user_name
+    group user_name
+    mode '0655'
+    action :create
 end
 
 # Setup my bashrc
@@ -47,9 +47,9 @@ utils.each do |util|
 end
 
 file "home/#{user_name}/bin/git_wrapper.sh" do
-  owner "#{user_name}"
-  mode "0755"
-  content "#!/bin/sh\nexec /usr/bin/ssh -i /home/#{user_name}/.ssh/id_rsa -i /home/#{user_name}/.ssh/id_ed25519 \"$@\""
+    owner "#{user_name}"
+    mode "0755"
+    content "#!/bin/sh\nexec /usr/bin/ssh -i /home/#{user_name}/.ssh/id_rsa -i /home/#{user_name}/.ssh/id_ed25519 \"$@\""
 end
 
 # Git projects to keep in sync
@@ -59,9 +59,10 @@ projects = [
 
 projects.each do |user, project|
     git "/home/#{user_name}/projects/#{project}" do
-      user user_name
-      repository "git@github.com:#{user}/#{project}.git"
-      ssh_wrapper "/home/#{user_name}/bin/git_wrapper.sh"
-      action :sync
+        user user_name
+        group user_name
+        repository "git@github.com:#{user}/#{project}.git"
+        ssh_wrapper "/home/#{user_name}/bin/git_wrapper.sh"
+        action :sync
     end
 end
