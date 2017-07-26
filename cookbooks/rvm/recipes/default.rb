@@ -7,6 +7,7 @@
 apt_repository 'rvm' do
   uri        'ppa:rael-gc/rvm'
   components ['main']
+  distribution 'zesty'
 end
 
 apt_package 'rvm'

@@ -7,6 +7,7 @@
 apt_repository 'st3' do
   uri        'http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu'
   components ['main']
+  distribution 'zesty'
   key '7B2C3B0889BF5709A105D03AC2518248EEA14886'
 end
 
