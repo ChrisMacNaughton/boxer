@@ -37,8 +37,8 @@ cookbook_file "/home/#{user_name}/.bashrc" do
 end
 
 # all package to install
-scm = %w{ bzr git }
-testing = %{ python-tox }
+scm = %w{bzr git}
+testing = %{python-tox}
 
 utils = [scm, testing, 'sshuttle'].flatten
 
