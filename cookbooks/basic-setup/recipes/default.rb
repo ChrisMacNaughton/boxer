@@ -46,15 +46,22 @@ utils.each do |util|
   package util
 end
 
+file "home/#{user_name}/bin/git_wrapper.sh" do
+  owner "#{user_name}"
+  mode "0755"
+  content "#!/bin/sh\nexec /usr/bin/ssh -i /home/#{user_name}/.ssh/id_rsa -i /home/#{user_name}/.ssh/id_ed25519 \"$@\""
+end
+
 # Git projects to keep in sync
 projects = [
     ['ChrisMacNaughton','boxer'],
 ]
 
 projects.each do |user, project|
-    git "/home/chris/projects/#{project}" do
+    git "/home/#{user_name}/projects/#{project}" do
       user user_name
       repository "git@github.com:#{user}/#{project}.git"
+      ssh_wrapper "/home/#{user_name}/bin/git_wrapper.sh"
       action :sync
     end
 end
