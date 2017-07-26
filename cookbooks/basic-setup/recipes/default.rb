@@ -36,11 +36,20 @@ cookbook_file "/home/#{user_name}/.bashrc" do
   source "bashrc"
 end
 
+# Setup my bashrc
+cookbook_file "/home/#{user_name}/.gitconfig" do
+  owner user_name
+  group user_name
+  source "gitconfig"
+end
+
 # all package to install
 scm = %w{bzr git}
 testing = %{python-tox}
+messaging = %{telegram-desktop}
+networking = %{network-manager-openvpn-gnome}
 
-utils = [scm, testing, 'sshuttle'].flatten
+utils = [scm, testing, 'sshuttle', networking, messaging].flatten
 
 utils.each do |util|
   package util
@@ -52,20 +61,4 @@ file "home/#{user_name}/bin/git_wrapper.sh" do
     content "#!/bin/sh\nexec /usr/bin/ssh -i /home/#{user_name}/.ssh/id_rsa -i /home/#{user_name}/.ssh/id_ed25519 \"$@\""
 end
 
-# Git projects to keep in sync
-projects = [
-    ['ChrisMacNaughton','boxer'],
-]
-
-projects.each do |user, project|
-    git "/home/#{user_name}/projects/#{project}" do
-        user user_name
-        group user_name
-        checkout_branch 'master'
-        enable_checkout false
-        enable_submodules true
-        repository "git@github.com:#{user}/#{project}.git"
-        ssh_wrapper "/home/#{user_name}/bin/git_wrapper.sh"
-        action :sync
-    end
-end
+include_recipe 'basic-setup::repos'
