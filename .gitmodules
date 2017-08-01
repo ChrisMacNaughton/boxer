@@ -1,3 +1,0 @@
-[submodule "cookbooks/chrome"]
-	path = cookbooks/chrome
-	url = https://github.com/dhoer/chef-chrome.git
