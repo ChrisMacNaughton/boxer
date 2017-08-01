@@ -143,5 +143,8 @@ export PS1="$PURPLE$TIME $GREEN$USER_NAME$WHITE@$HOST$CYAN[$DIR]$GREEN\$(parse_g
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Add rustup for Rust stuff
+export PATH="$HOME/.cargo/bin:$PATH"
+
 export SSH_AGENT_PID=$(pgrep -ou $USER ssh-agent)
 export SSH_AUTH_SOCK="$(find -L /tmp -type s -user $USER -name 'agent.*' 2>/dev/null | head -1)"

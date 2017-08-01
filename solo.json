@@ -3,6 +3,7 @@
         "recipe[basic-setup::default]",
         "recipe[sublime-text-3::default]",
         "recipe[rvm::default]",
-        "recipe[chrome::default]"
+        "recipe[chrome::default]",
+        "recipe[spotify::default]"
     ]
 }

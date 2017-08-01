@@ -45,11 +45,13 @@ end
 
 # all package to install
 scm = %w{bzr git}
-testing = %{python-tox}
-messaging = %{telegram-desktop}
-networking = %{network-manager-openvpn-gnome}
+testing = %w{python-tox}
+messaging = %w{telegram-desktop}
+networking = %w{network-manager-openvpn-gnome sshuttle}
+gpg_tools = %w{scdaemon pcscd pcsc-tools}
+desktop_utils = %w{gnome-tweak-tool}
 
-utils = [scm, testing, 'sshuttle', networking, messaging].flatten
+utils = [scm, testing, gpg_tools, networking, messaging, desktop_utils].flatten
 
 utils.each do |util|
   package util
