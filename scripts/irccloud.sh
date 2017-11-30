@@ -2,7 +2,8 @@
 
 install (){
     log "Ensuring IrcCloud is installed"
-    command -v IRCCloud >/dev/null 2>&1 || {
+    command -v IRCCloud >/dev/null 2>&1 || 
+    command -v irccloud-desktop >/dev/null 2>&1 || {
         deps
         fetch
         deb_install /tmp/irccloud.deb
