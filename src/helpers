@@ -36,5 +36,5 @@ require_root() {
 
 deb_install() {
     require_root
-    dpkg -i $1
+    sudo dpkg -i $1
 }
