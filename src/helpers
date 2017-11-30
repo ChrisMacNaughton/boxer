@@ -6,19 +6,19 @@ log() {
 
 update() {
     log "Updating system"
-    # apt-get update -qq
+    apt-get update -qq
 }
 
 upgrade() {
     log "Upgrading packages"
-    # apt-get upgrade -yqq
+    apt-get upgrade -yqq
 }
 
 ensure_packages() {
     if [ ! -z "$1" ]
     then
         log "Installing packages: ($1)"
-        # apt-get install -yq $1
+        apt-get install -yq $1
     fi
 }
 
