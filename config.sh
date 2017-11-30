@@ -1,6 +1,6 @@
 BASE_PACKAGES="git curl"
 
-APT_PAKAGES="virt-manager"
+APT_PACKAGES="virt-manager"
 
 VSCODE_PACKAGES="DavidAnson.vscode-markdownlint
 EditorConfig.EditorConfig
