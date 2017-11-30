@@ -14,6 +14,6 @@ fetch() {
 }
 
 deps() {
-    ensure_packages "gconf2 gconf-service libgtk2.0-0 libudev0 | libudev1 libgcrypt11 | libgcrypt20 libnotify4 libxtst6 libnss3 python gvfs-bin xdg-utils apt-transport-https libxss1 libgnome-keyring0 gir1.2-gnomekeyring-1.0 libappindicator1 libcurl3 libsecret-1-0"
+    ensure_packages "gconf2 gconf-service libgtk2.0-0 libudev1 libgcrypt20 libnotify4 libxtst6 libnss3 python gvfs-bin xdg-utils apt-transport-https libxss1 libgnome-keyring0 gir1.2-gnomekeyring-1.0 libappindicator1 libcurl3 libsecret-1-0"
 }
 install
