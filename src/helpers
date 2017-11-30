@@ -1,20 +1,24 @@
 #!/bin/bash
 
 log() {
+    require_root
     echo "$(date): $1"
 }
 
-update() {
+apt_update() {
+    require_root
     log "Updating system"
     sudo apt-get update -qq
 }
 
-upgrade() {
+apt_upgrade() {
+    require_root
     log "Upgrading packages"
     sudo apt-get upgrade -yqq
 }
 
 ensure_packages() {
+    require_root
     if [ ! -z "$1" ]
     then
         log "Installing packages: ($1)"
@@ -31,9 +35,6 @@ require_root() {
 }
 
 deb_install() {
+    require_root
     dpkg -i $1
-}
-
-apt_install() {
-    sudo apt-get install -yq $1
 }

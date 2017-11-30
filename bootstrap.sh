@@ -8,6 +8,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/" && pwd )"
 require_root
 
 . $DIR/config.sh
+apt_update
+apt_upgrade
 
 ensure_packages "$BASE_PACKAGES $APT_PACKAGES"
 

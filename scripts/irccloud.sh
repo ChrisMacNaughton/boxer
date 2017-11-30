@@ -15,6 +15,6 @@ fetch() {
 }
 
 deps() {
-    apt_install libappindicator1
+    ensure_packages "gconf2 gconf-service libnotify4 libappindicator1 libxtst6 libnss3 libxss1"
 }
 install
