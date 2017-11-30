@@ -9,7 +9,7 @@ install (){
 }
 
 fetch() {
-    curl -o /tmp/irccloud.deb http://desktop.irccloud.com/
+    wget -O /tmp/irccloud.deb https://github.com/irccloud/irccloud-desktop/releases/download/v0.4.0/irccloud-desktop_0.4.0_amd64.deb
 }
 
 install
