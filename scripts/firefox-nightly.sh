@@ -9,7 +9,7 @@ install (){
 }
 
 add_repo() {
-    add-apt-repository -y ppa:ubuntu-mozilla-daily/ppa
+    add_repo ppa:ubuntu-mozilla-daily/ppa
     apt_update
 }
 

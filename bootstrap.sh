@@ -8,10 +8,16 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/" && pwd )"
 require_root
 
 . $DIR/config.sh
+
+add_repo universe
+add_repo multiverse
+
 apt_update
 apt_upgrade
 
 ensure_packages "$BASE_PACKAGES $APT_PACKAGES"
+ensure_snaps "$SNAPS"
+ensure_classic_snaps "$CLASSIC_SNAPS"
 
 # if [ ! -f /home/chris/.ssh/id_rsa ] && [ ! -f/home/chris/.ssh/id_ed25519 ]; then
 #     echo "SSH keys aren't yet installed, an SSH key must be present for full initialization"

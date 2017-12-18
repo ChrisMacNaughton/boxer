@@ -22,7 +22,27 @@ ensure_packages() {
     if [ ! -z "$1" ]
     then
         log "Installing packages: ($1)"
-        sudo apt-get install -yq $1
+        sudo apt-get install -yqq $1
+    fi
+}
+
+ensure_snaps() {
+    require_root
+    if [ ! -z "$1" ]
+    then
+        log "Installing snaps: ($1)"
+        sudo snap install $1 > /dev/null 2>&1
+    fi
+}
+
+ensure_classic_snaps() {
+    require_root
+    if [ ! -z "$1" ]
+    then
+        log "Installing classic snaps: ($1)"
+        for snap in $1; do
+            sudo snap install --classic $snap > /dev/null 2>&1
+        done
     fi
 }
 
@@ -37,4 +57,9 @@ require_root() {
 deb_install() {
     require_root
     sudo dpkg -i $1
+}
+
+add_repo() {
+    require_root
+    sudo apt-add-repository -y $1
 }

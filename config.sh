@@ -1,6 +1,11 @@
-BASE_PACKAGES="git curl"
+BASE_PACKAGES="git curl rsync"
 
-APT_PACKAGES="virt-manager"
+DEV_PACKAGES="libssl-dev libzmq3-dev libprotoc-dev protobuf-compiler"
+
+APT_PACKAGES="virt-manager network-manager-openvpn-gnome tree sysstat steam-installer $DEV_PACKAGES"
+
+SNAPS="telegram-sergiusens charm"
+CLASSIC_SNAPS="juju snapcraft"
 
 VSCODE_PACKAGES="DavidAnson.vscode-markdownlint
 EditorConfig.EditorConfig

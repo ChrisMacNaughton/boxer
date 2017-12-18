@@ -14,9 +14,7 @@ install_plugins() {
     installed=$(code --list-extensions)
     for extension in $VSCODE_PACKAGES
     do
-        echo $installed | grep $extension >/dev/null 2>&1 && {
-             log "    Skipping $extension, already installed"
-        }|| {
+        echo $installed | grep $extension >/dev/null 2>&1 || {
             log "Installing VSCode plugin: $extension"
             code --install-extension $extension
         }
