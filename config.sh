@@ -2,7 +2,9 @@ BASE_PACKAGES="git curl rsync"
 
 DEV_PACKAGES="libssl-dev libzmq3-dev libprotoc-dev protobuf-compiler"
 
-APT_PACKAGES="virt-manager network-manager-openvpn-gnome tree sysstat steam-installer $DEV_PACKAGES"
+SYS_PACKAGES="network-manager-openvpn-gnome tree sysstat htop"
+
+APT_PACKAGES="virt-manager $SYS_PACKAGES steam-installer clementine $DEV_PACKAGES"
 
 SNAPS="telegram-sergiusens charm"
 CLASSIC_SNAPS="juju snapcraft"
